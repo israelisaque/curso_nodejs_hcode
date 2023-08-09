@@ -4,8 +4,6 @@ function soma(x) {
             resolve(x + 5000)
         },3000)
     })
-    
-    
 }
 
 soma(230)
