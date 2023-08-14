@@ -1,0 +1,53 @@
+use <nome_do_banco> 
+- cria ou acessa o banco existente
+
+db 
+- retorna o banco conectado
+
+show dbs 
+- retorna todos os bancos do sistema
+
+show collections
+- retorna as coleções do banco corrente
+
+db.createCollections("<nome_da_colecao>") 
+- cria uma colação vazia
+
+db.<collection>.insert({"key":"value", ...}) 	
+- cria uma coleção e insere os documentos na mesma
+
+db.<collection>.insertOne({"key":"value", ...}) 
+- cria uma coleção e insere um documentos na mesma
+
+db.<collection>.insertMany({"key":"value", ...}) 
+- cria uma coleção e insere diversos documentos na mesma
+
+db.<collection>.find() 
+- retorna os documentos da coleção 
+
+db.<collection>.find({"key":"value"}) 
+- retorna o documento solicitado
+
+db.<collection>.updateOne({"key":"value"}, {$set: {"key":"value", ...}})
+- altera os dados de um documento
+
+db.<collection>.updateOne({"key":"value"}, {$set: {"key":"value", ...}, $currentDate: {lastModified: true} })
+- altera os dados de um documento inserindo a data da modificação
+
+db.<collection>.updateMany({ value: {$lt: 5000}}, {$set:{value: 999}, $currentDate: {lastModified: true}})
+- altera os dados de todos os documentos com a condição passada e insere a data da modificação
+
+db.produtos.replaceOne({_id: 4}, {name: "Monitor LG 4K IPS Curve"}) 
+- altera todo o documento, por isso necessário informar todos os campos, se não, todos serão apagados e apenas o campo passado alterado
+
+db.produtos.deleteOne({_id:1}) 
+- deleta todo o documento que contém o id 1
+
+db.produtos.deleteMany({value: 999}) 
+- deleta todos os documentos que contém a chave value com valor de 999
+
+db.produtos.deleteMany({})
+- deleta todos os documentos da coleção
+
+
+
